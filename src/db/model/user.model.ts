@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 import { v4 as uuid } from 'uuid';
 // import { User } from 'src/module/user/entities/user.entity';
 
-export type ClientDocument = Client & Document;
+export type UserDocument = User & Document;
 
 @Schema({
   toJSON: {
@@ -12,7 +12,7 @@ export type ClientDocument = Client & Document;
   },
   timestamps: true,
 })
-export class Client {
+export class User {
   @Prop({ required: true })
   name: string;
 
@@ -26,7 +26,7 @@ export class Client {
   clientId: string;
 }
 
-export const ClientSchema = SchemaFactory.createForClass(Client);
+export const UserSchema = SchemaFactory.createForClass(User);
 
 /* ClientSchema.virtual('Users', {
   ref: 'User',

@@ -1,18 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+// import { AppController } from './app.controller';
+import { UserController } from './controllers';
+
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import { UserModule } from './module/user/user.module';
-import { ClientModule } from './module/client/client.module';
+import { MongoServicesModule } from './db/mongo';
+import { UserUseCasesModule } from './uses-cases/user/user-use-cases.module';
+
 import 'dotenv/config';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING), //
-    UserModule,
-    ClientModule,
-  ],
-  controllers: [AppController],
+  imports: [MongoServicesModule, UserUseCasesModule],
+  controllers: [UserController],
   providers: [AppService],
 })
 export class AppModule {}
