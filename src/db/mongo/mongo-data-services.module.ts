@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IDataServices } from '../../core';
 import { DATA_BASE_CONFIGURATION } from '../../configuration';
-import { User, UserSchema, Client, ClientSchema, House, HouseSchema } from '../model';
+import { User, UserSchema, Client, ClientSchema } from '../model';
 import { MongoDataServices } from './mongo-data-services.service';
 
 
@@ -12,8 +12,7 @@ console.log({ name: User.name });
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
-      { name: Client.name, schema: ClientSchema },
-      { name: House.name, schema: HouseSchema }]),
+      { name: Client.name, schema: ClientSchema }]),
     MongooseModule.forRoot(DATA_BASE_CONFIGURATION.mongoConnectionString),
   ],
   providers: [
