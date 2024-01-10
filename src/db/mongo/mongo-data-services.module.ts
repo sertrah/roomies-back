@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IDataServices } from '../../core';
 import { DATA_BASE_CONFIGURATION } from '../../configuration';
-import { User, UserSchema, Roomies, RoomiesSchema, Assignment, AssignmentSchema, Movement, MovementSchema } from '../model';
+import { User, UserSchema, Roomies, RoomiesSchema, Assignment, AssignmentSchema, Movement, MovementSchema, Bill, BillSchema } from '../model';
 import { MongoDataServices } from './mongo-data-services.service';
 
 
@@ -14,7 +14,8 @@ console.log({ name: User.name });
       { name: User.name, schema: UserSchema },
       { name: Roomies.name, schema: RoomiesSchema },
       { name: Assignment.name, schema: AssignmentSchema },
-      { name: Movement.name, schema: MovementSchema }]),
+      { name: Movement.name, schema: MovementSchema },
+      { name: Bill.name, schema: BillSchema }]),
     MongooseModule.forRoot(DATA_BASE_CONFIGURATION.mongoConnectionString),
   ],
   providers: [
