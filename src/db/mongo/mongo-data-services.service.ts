@@ -3,23 +3,23 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IDataServices } from '../../core';
 import { MongoGenericRepository } from './mongo-data-services.repository';
-import { User, Client, UserDocument, ClientDocument } from '../model';
+import { User, Roomies, UserDocument, RoomiesDocument } from '../model';
 
 @Injectable()
 export class MongoDataServices
   implements IDataServices<User>, OnApplicationBootstrap {
   users: MongoGenericRepository<User>;
-  clients: MongoGenericRepository<Client>;
+  roomieses: MongoGenericRepository<Roomies>;
 
   constructor(
     @InjectModel(User.name)
     private UserRepository: Model<UserDocument>,
-    @InjectModel(Client.name)
-    private ClientRepository: Model<ClientDocument>,
+    @InjectModel(Roomies.name)
+    private RoomiesRepository: Model<RoomiesDocument>,
   ) { }
 
   onApplicationBootstrap() {
     this.users = new MongoGenericRepository<User>(this.UserRepository);
-    this.clients = new MongoGenericRepository<Client>(this.ClientRepository);
+    this.roomieses = new MongoGenericRepository<Roomies>(this.RoomiesRepository);
   }
 }
