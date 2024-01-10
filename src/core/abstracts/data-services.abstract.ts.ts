@@ -4,4 +4,5 @@ export abstract class IDataServices<T> {
   abstract users: IGenericRepository<T>;
   abstract roomieses: IGenericRepository<T>;
   abstract assignments: IGenericRepository<T>;
+  abstract movements: IGenericRepository<T>;
 }
