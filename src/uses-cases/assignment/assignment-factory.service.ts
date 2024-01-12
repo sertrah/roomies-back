@@ -6,18 +6,18 @@ import { CreateAssignmentDto, UpdateAssignmentDto } from '../../core/dtos';
 export class AssignmentFactoryService {
   createNewAssignment(createAssignmentDto: CreateAssignmentDto) {
     const newAssignment = new Assignment();
-    newAssignment.firstName = createAssignmentDto.firstName;
-    newAssignment.lastName = createAssignmentDto.lastName;
-    newAssignment.name = createAssignmentDto.name;
-    newAssignment.clientId = createAssignmentDto.clientId;
+    newAssignment.roommieId = createAssignmentDto.roommieId;
+    newAssignment.houseId = createAssignmentDto.houseId;
+    newAssignment.isActive = createAssignmentDto.isActive;
+    newAssignment.create_at = createAssignmentDto.create_at;
 
     return newAssignment;
   }
 
   updateAssignment(updateAssignmentDto: UpdateAssignmentDto) {
     const newAssignment = new Assignment();
-    newAssignment.firstName = updateAssignmentDto.firstName;
-    newAssignment.lastName = updateAssignmentDto.lastName;
+    newAssignment.roommieId = updateAssignmentDto.roommieId;
+    newAssignment.houseId = updateAssignmentDto.houseId;
 
     return newAssignment;
   }

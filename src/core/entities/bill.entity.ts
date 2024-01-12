@@ -1,6 +1,8 @@
 export class Bill {
-    firstName: string;
-    lastName: string;
     name: string;
-    clientId: string;
+    totalAmount: number;
+    paymentPeriod: string;
+    houseId: string;
+    createdAt: string;
+    description: string;
 }

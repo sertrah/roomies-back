@@ -14,16 +14,6 @@ export type BillDocument = Bill & Document;
 export class Bill {
     @Prop({ required: true })
     name: string;
-
-    @Prop({
-        required: true,
-        unique: true,
-        default: function genUUID() {
-            return uuid();
-        },
-    })
-    clientId: string;
 }
 
 export const BillSchema = SchemaFactory.createForClass(Bill);
-

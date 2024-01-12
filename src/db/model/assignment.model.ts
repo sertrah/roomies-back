@@ -12,17 +12,7 @@ export type AssignmentDocument = Assignment & Document;
     timestamps: true,
 })
 export class Assignment {
-    @Prop({ required: true })
-    name: string;
 
-    @Prop({
-        required: true,
-        unique: true,
-        default: function genUUID() {
-            return uuid();
-        },
-    })
-    clientId: string;
 }
 
 export const AssignmentSchema = SchemaFactory.createForClass(Assignment);

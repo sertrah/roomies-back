@@ -4,18 +4,22 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateMovementDto {
     @IsString()
     @IsNotEmpty()
-    firstName: string;
+    photo: string;
 
     @IsString()
     @IsNotEmpty()
-    lastName: string;
+    amount: number;
 
     @IsString()
     @IsNotEmpty()
-    name: string;
+    movementType: string;
 
     @IsString()
-    clientId: string;
+    billsId: string;
+
+
+    @IsString()
+    assignmentId: string;
 
 }
 

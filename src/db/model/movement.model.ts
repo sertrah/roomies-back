@@ -12,17 +12,11 @@ export type MovementDocument = Movement & Document;
     timestamps: true,
 })
 export class Movement {
-    @Prop({ required: true })
-    name: string;
 
     @Prop({
-        required: true,
         unique: true,
-        default: function genUUID() {
-            return uuid();
-        },
     })
-    clientId: string;
+    assignmentId: string;
 }
 
 export const MovementSchema = SchemaFactory.createForClass(Movement);

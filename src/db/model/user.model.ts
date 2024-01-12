@@ -14,16 +14,10 @@ export type UserDocument = User & Document;
 })
 export class User {
   @Prop({ required: true })
-  name: string;
+  username: string;
 
-  @Prop({
-    required: true,
-    unique: true,
-    default: function genUUID() {
-      return uuid();
-    },
-  })
-  clientId: string;
+  @Prop({ required: true })
+  passwd: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

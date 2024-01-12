@@ -4,11 +4,11 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
-  firstName: string;
+  username: string;
 
   @IsString()
   @IsNotEmpty()
-  lastName: string;
+  passwd: string;
 }
 
-export class UpdateUserDto extends PartialType(CreateUserDto) {}
+export class UpdateUserDto extends PartialType(CreateUserDto) { }

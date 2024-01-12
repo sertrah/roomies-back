@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '../../core/entities';
+import { User } from '../../db/model';
 import { CreateUserDto, UpdateUserDto } from '../../core/dtos';
 
 @Injectable()
 export class UserFactoryService {
   createNewUser(createUserDto: CreateUserDto) {
     const newUser = new User();
-    newUser.firstName = createUserDto.firstName;
-    newUser.lastName = createUserDto.lastName;
+    newUser.username = createUserDto.username;
+    newUser.passwd = createUserDto.passwd;
 
     return newUser;
   }
 
   updateUser(updateUserDto: UpdateUserDto) {
     const newUser = new User();
-    newUser.firstName = updateUserDto.firstName;
-    newUser.lastName = updateUserDto.lastName;
+    newUser.username = updateUserDto.username;
+    newUser.passwd = updateUserDto.passwd;
 
     return newUser;
   }

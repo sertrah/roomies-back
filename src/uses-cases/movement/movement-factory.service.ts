@@ -6,18 +6,18 @@ import { CreateMovementDto, UpdateMovementDto } from '../../core/dtos';
 export class MovementFactoryService {
     createNewMovement(createMovementDto: CreateMovementDto) {
         const newMovement = new Movement();
-        newMovement.firstName = createMovementDto.firstName;
-        newMovement.lastName = createMovementDto.lastName;
-        newMovement.name = createMovementDto.name;
-        newMovement.clientId = createMovementDto.clientId;
-
+        newMovement.amount = createMovementDto.amount;
+        newMovement.movementType = createMovementDto.movementType;
+        newMovement.photo = createMovementDto.photo;
+        newMovement.assignmentId = createMovementDto.assignmentId;
+        newMovement.billsId = createMovementDto.billsId;
         return newMovement;
     }
 
     updateMovement(updateMovementDto: UpdateMovementDto) {
         const newMovement = new Movement();
-        newMovement.firstName = updateMovementDto.firstName;
-        newMovement.lastName = updateMovementDto.lastName;
+        newMovement.movementType = updateMovementDto.movementType;
+        newMovement.photo = updateMovementDto.photo;
 
         return newMovement;
     }

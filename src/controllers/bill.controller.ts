@@ -9,7 +9,6 @@ export class BillController {
 
     @Get()
     async getAll() {
-        this.createBill({ firstName: 'prueba', lastName: 'test', name: 'test2', clientId: '232w2' })
         return this.billUseCases.getAllBill();
     }
 

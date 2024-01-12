@@ -4,7 +4,7 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateRoomiesDto {
   @IsString()
   @IsNotEmpty()
-  firstName: string;
+  name: string;
 
   @IsString()
   @IsNotEmpty()
@@ -12,10 +12,13 @@ export class CreateRoomiesDto {
 
   @IsString()
   @IsNotEmpty()
-  name: string;
+  email: string;
 
   @IsString()
-  clientId: string;
+  image: string;
+
+  @IsString()
+  tel: string;
 
 }
 

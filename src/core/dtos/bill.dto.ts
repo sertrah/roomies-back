@@ -4,19 +4,24 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateBillDto {
     @IsString()
     @IsNotEmpty()
-    firstName: string;
-
-    @IsString()
-    @IsNotEmpty()
-    lastName: string;
-
-    @IsString()
-    @IsNotEmpty()
     name: string;
 
     @IsString()
-    clientId: string;
+    @IsNotEmpty()
+    totalAmount: number;
 
+    @IsString()
+    @IsNotEmpty()
+    paymentPeriod: string;
+
+    @IsString()
+    houseId: string;
+
+    @IsString()
+    createdAt: string;
+
+    @IsString()
+    description: string;
 }
 
 export class UpdateBillDto extends PartialType(CreateBillDto) { }

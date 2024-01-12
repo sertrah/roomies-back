@@ -5,4 +5,4 @@ import { MongoDataServicesModule } from './mongo-data-services.module';
   imports: [MongoDataServicesModule],
   exports: [MongoDataServicesModule],
 })
-export class MongoServicesModule {}
+export class MongoServicesModule { }

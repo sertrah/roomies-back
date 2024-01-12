@@ -7,21 +7,44 @@ import { BillFactoryService } from './bill-factory.service';
 @Injectable()
 export class BillUseCases {
     constructor(
-        private dataServices: IDataServices<Bill>,
+        private dataServices: IDataServices,
         private billFactoryService: BillFactoryService,
     ) { }
 
-    getAllBill(): Promise<Bill[]> {
-        return this.dataServices.bills.getAll();
+    getAllBill(): Promise<Bill[]> { // CAMBIANDO DE []DB -> []ENTIDAD DE DOMINIO
+        const p = this.dataServices.bills.getAll();
+        return p.then((v) => v.map(billDB => ({
+            name: 'name',
+            totalAmount: 123,
+            paymentPeriod: 'paymentPeriod',
+            houseId: 'houseId',
+            createdAt: 'createdAt',
+            description: 'description',
+        })))
     }
 
     getBillById(id: any): Promise<Bill> {
-        return this.dataServices.bills.get(id);
+        const v = this.dataServices.bills.get(id);
+        return v.then((a) => ({
+            name: 'name',
+            totalAmount: 123,
+            paymentPeriod: 'paymentPeriod',
+            houseId: 'houseId',
+            createdAt: 'createdAt',
+            description: 'description',
+        }));
     }
 
     createBill(createBillDto: CreateBillDto): Promise<Bill> {
         const Bill = this.billFactoryService.createNewBill(createBillDto);
-        return this.dataServices.bills.create(Bill);
+        return this.dataServices.bills.create(Bill).then((x => ({
+            name: 'name',
+            totalAmount: 123,
+            paymentPeriod: 'paymentPeriod',
+            houseId: 'houseId',
+            createdAt: 'createdAt',
+            description: 'description',
+        })));
     }
 
     updateBill(BillId: string, updateBillDto: UpdateBillDto): Promise<Bill> {

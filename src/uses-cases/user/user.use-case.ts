@@ -4,28 +4,35 @@ import { IDataServices } from '../../core/abstracts';
 import { CreateUserDto, UpdateUserDto } from '../../core/dtos';
 import { UserFactoryService } from './user-factory.service';
 
+import { UserMapper } from './user.mapper';
+
 @Injectable()
 export class UserUseCases {
   constructor(
-    private dataServices: IDataServices<User>,
+    private dataServices: IDataServices,
     private userFactoryService: UserFactoryService,
-  ) {}
+  ) { }
 
-  getAllUsers(): Promise<User[]> {
-    return this.dataServices.users.getAll();
+  getAllUser(): Promise<User[]> {
+    const a = this.dataServices.users.getAll();
+    return UserMapper.getAllUser(a);
+
   }
 
   getUserById(id: any): Promise<User> {
-    return this.dataServices.users.get(id);
+    const a = this.dataServices.users.get(id);
+    return UserMapper.getUserById(a);
   }
 
   createUser(createUserDto: CreateUserDto): Promise<User> {
-    const user = this.userFactoryService.createNewUser(createUserDto);
-    return this.dataServices.users.create(user);
+    const User = this.userFactoryService.createNewUser(createUserDto);
+    const created = this.dataServices.users.create(User);
+    return UserMapper.createUser(created)
   }
 
-  updateUser(userId: string, updateUserDto: UpdateUserDto): Promise<User> {
-    const user = this.userFactoryService.updateUser(updateUserDto);
-    return this.dataServices.users.update(userId, user);
+  updateUser(UserId: string, updateUserDto: UpdateUserDto): Promise<User> {
+    const User = this.userFactoryService.updateUser(updateUserDto);
+    const userCreated = this.dataServices.users.update(UserId, User);
+    return UserMapper.updateUser(userCreated)
   }
 }

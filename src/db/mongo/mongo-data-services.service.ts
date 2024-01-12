@@ -7,7 +7,7 @@ import { User, Roomies, Assignment, Movement, Bill, UserDocument, RoomiesDocumen
 
 @Injectable()
 export class MongoDataServices
-  implements IDataServices<User>, OnApplicationBootstrap {
+  implements IDataServices, OnApplicationBootstrap {
   users: MongoGenericRepository<User>;
   roomieses: MongoGenericRepository<Roomies>;
   assignments: MongoGenericRepository<Assignment>;

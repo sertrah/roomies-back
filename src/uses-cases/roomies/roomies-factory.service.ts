@@ -6,18 +6,19 @@ import { CreateRoomiesDto, UpdateRoomiesDto } from '../../core/dtos';
 export class RoomiesFactoryService {
   createNewRoomies(createRoomiesDto: CreateRoomiesDto) {
     const newRoomies = new Roomies();
-    newRoomies.firstName = createRoomiesDto.firstName;
-    newRoomies.lastName = createRoomiesDto.lastName;
     newRoomies.name = createRoomiesDto.name;
-    newRoomies.clientId = createRoomiesDto.clientId;
+    newRoomies.lastName = createRoomiesDto.lastName;
+    newRoomies.image = createRoomiesDto.image;
+    newRoomies.email = createRoomiesDto.email;
+    newRoomies.tel = createRoomiesDto.tel;
 
     return newRoomies;
   }
 
   updateRoomies(updateRoomiesDto: UpdateRoomiesDto) {
     const newRoomies = new Roomies();
-    newRoomies.firstName = updateRoomiesDto.firstName;
-    newRoomies.lastName = updateRoomiesDto.lastName;
+    newRoomies.name = updateRoomiesDto.name;
+    newRoomies.tel = updateRoomiesDto.tel;
 
     return newRoomies;
   }
