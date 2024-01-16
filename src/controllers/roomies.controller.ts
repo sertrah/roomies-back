@@ -8,7 +8,7 @@ export class RoomiesController {
 
   @Get()
   async getAll() {
-    return this.roomiesUseCases.getAllRoomiess();
+    return this.roomiesUseCases.getAllRoomies();
   }
 
   @Get(':id')

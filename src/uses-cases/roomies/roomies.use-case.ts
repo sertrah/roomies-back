@@ -11,7 +11,7 @@ export class RoomiesUseCases {
     private roomiesFactoryService: RoomiesFactoryService,
   ) { }
 
-  getAllRoomiess(): Promise<Roomies[]> {
+  getAllRoomies(): Promise<Roomies[]> {
     return this.dataServices.roomieses.getAll();
   }
 
