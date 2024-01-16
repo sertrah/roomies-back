@@ -2,12 +2,18 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IDataServices } from '../../core';
 import { DATA_BASE_CONFIGURATION } from '../../configuration';
-import { User, UserSchema } from '../model';
+import { User, UserSchema, Client, ClientSchema, House, HouseSchema } from '../model';
 import { MongoDataServices } from './mongo-data-services.service';
 
+
+console.log({ name: Client.name });
+console.log({ name: User.name });
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([
+      { name: User.name, schema: UserSchema },
+      { name: Client.name, schema: ClientSchema },
+      { name: House.name, schema: HouseSchema }]),
     MongooseModule.forRoot(DATA_BASE_CONFIGURATION.mongoConnectionString),
   ],
   providers: [
@@ -18,4 +24,4 @@ import { MongoDataServices } from './mongo-data-services.service';
   ],
   exports: [IDataServices],
 })
-export class MongoDataServicesModule {}
+export class MongoDataServicesModule { }
