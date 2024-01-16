@@ -3,15 +3,16 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IDataServices } from '../../core';
 import { MongoGenericRepository } from './mongo-data-services.repository';
-import { User, Roomies, Assignment, Movement, UserDocument, RoomiesDocument, AssignmentDocument, MovementDocument } from '../model';
+import { User, Roomies, Assignment, Movement, Bill, UserDocument, RoomiesDocument, AssignmentDocument, MovementDocument, BillDocument } from '../model';
 
 @Injectable()
 export class MongoDataServices
-  implements IDataServices<User>, OnApplicationBootstrap {
+  implements IDataServices, OnApplicationBootstrap {
   users: MongoGenericRepository<User>;
   roomieses: MongoGenericRepository<Roomies>;
   assignments: MongoGenericRepository<Assignment>;
   movements: MongoGenericRepository<Movement>;
+  bills: MongoGenericRepository<Bill>;
 
   constructor(
     @InjectModel(User.name)
@@ -22,6 +23,8 @@ export class MongoDataServices
     private AssignmentRepository: Model<AssignmentDocument>,
     @InjectModel(Movement.name)
     private MovementRepository: Model<MovementDocument>,
+    @InjectModel(Bill.name)
+    private BillRepository: Model<BillDocument>,
   ) { }
 
   onApplicationBootstrap() {
@@ -29,5 +32,6 @@ export class MongoDataServices
     this.roomieses = new MongoGenericRepository<Roomies>(this.RoomiesRepository);
     this.assignments = new MongoGenericRepository<Assignment>(this.AssignmentRepository);
     this.movements = new MongoGenericRepository<Movement>(this.MovementRepository);
+    this.bills = new MongoGenericRepository<Bill>(this.BillRepository);
   }
 }

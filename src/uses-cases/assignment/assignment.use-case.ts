@@ -4,28 +4,35 @@ import { IDataServices } from '../../core/abstracts';
 import { CreateAssignmentDto, UpdateAssignmentDto } from '../../core/dtos';
 import { AssignmentFactoryService } from './assignment-factory.service';
 
+import { AssignmentMapper } from './assignment.mapper';
+
 @Injectable()
 export class AssignmentUseCases {
     constructor(
-        private dataServices: IDataServices<Assignment>,
+        private dataServices: IDataServices,
         private assignmentFactoryService: AssignmentFactoryService,
     ) { }
 
     getAllAssignment(): Promise<Assignment[]> {
-        return this.dataServices.assignments.getAll();
+        const a = this.dataServices.assignments.getAll();
+        return AssignmentMapper.getAllAssignment(a);
+
     }
 
     getAssignmentById(id: any): Promise<Assignment> {
-        return this.dataServices.assignments.get(id);
+        const a = this.dataServices.assignments.get(id);
+        return AssignmentMapper.getAssignmentById(a);
     }
 
     createAssignment(createAssignmentDto: CreateAssignmentDto): Promise<Assignment> {
         const Assignment = this.assignmentFactoryService.createNewAssignment(createAssignmentDto);
-        return this.dataServices.assignments.create(Assignment);
+        const created = this.dataServices.assignments.create(Assignment);
+        return AssignmentMapper.createAssignment(created)
     }
 
-    updateAssignment(assignmentId: string, updateAssignmentDto: UpdateAssignmentDto): Promise<Assignment> {
+    updateAssignment(AssignmentId: string, updateAssignmentDto: UpdateAssignmentDto): Promise<Assignment> {
         const Assignment = this.assignmentFactoryService.updateAssignment(updateAssignmentDto);
-        return this.dataServices.assignments.update(assignmentId, Assignment);
+        const assignmentCreated = this.dataServices.assignments.update(AssignmentId, Assignment);
+        return AssignmentMapper.updateAssignment(assignmentCreated)
     }
 }

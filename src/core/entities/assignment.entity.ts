@@ -1,6 +1,6 @@
 export class Assignment {
-    firstName: string;
-    lastName: string;
-    name: string;
-    clientId: string;
+    roommieId: string;
+    houseId: string;
+    isActive: string;
+    create_at: string;
 }

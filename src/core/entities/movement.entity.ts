@@ -1,6 +1,7 @@
 export class Movement {
-    firstName: string;
-    lastName: string;
-    name: string;
-    clientId: string;
+    photo: string;
+    amount: number;
+    movementType: string;
+    billsId: string;
+    assignmentId: string;
 }

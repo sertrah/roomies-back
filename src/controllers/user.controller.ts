@@ -8,7 +8,7 @@ export class UserController {
 
   @Get()
   async getAll() {
-    return this.userUseCases.getAllUsers();
+    return this.userUseCases.getAllUser();
   }
 
   @Get(':id')

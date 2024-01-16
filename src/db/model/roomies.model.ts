@@ -14,15 +14,6 @@ export type RoomiesDocument = Roomies & Document;
 export class Roomies {
   @Prop({ required: true })
   name: string;
-
-  @Prop({
-    required: true,
-    unique: true,
-    default: function genUUID() {
-      return uuid();
-    },
-  })
-  clientId: string;
 }
 
 export const RoomiesSchema = SchemaFactory.createForClass(Roomies);

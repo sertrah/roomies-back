@@ -9,7 +9,7 @@ export class MovementController {
 
     @Get()
     async getAll() {
-        this.createMovement({ firstName: 'prueba', lastName: 'test', name: 'test2', clientId: '2322' })
+        //this.createMovement({ name: 'prueba2', lastName: 'test', email: 'testing@', image: 'www', tel: '323' })
         return this.movementUseCases.getAllMovement();
     }
 
@@ -25,9 +25,9 @@ export class MovementController {
 
     @Put(':id')
     updateMovement(
-        @Param('id') clientId: string,
+        @Param('id') assignmentId: string,
         @Body() updateMovementDto: UpdateMovementDto,
     ) {
-        return this.movementUseCases.updateMovement(clientId, updateMovementDto);
+        return this.movementUseCases.updateMovement(assignmentId, updateMovementDto);
     }
 }

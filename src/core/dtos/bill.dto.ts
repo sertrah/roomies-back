@@ -1,26 +1,27 @@
 import { IsString, IsNotEmpty } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
 
-export class CreateMovementDto {
+export class CreateBillDto {
     @IsString()
     @IsNotEmpty()
-    photo: string;
-
-    @IsString()
-    @IsNotEmpty()
-    amount: number;
+    name: string;
 
     @IsString()
     @IsNotEmpty()
-    movementType: string;
+    totalAmount: number;
 
     @IsString()
-    billsId: string;
-
+    @IsNotEmpty()
+    paymentPeriod: string;
 
     @IsString()
-    assignmentId: string;
+    houseId: string;
 
+    @IsString()
+    createdAt: string;
+
+    @IsString()
+    description: string;
 }
 
-export class UpdateMovementDto extends PartialType(CreateMovementDto) { }
+export class UpdateBillDto extends PartialType(CreateBillDto) { }

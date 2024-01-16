@@ -4,18 +4,18 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateAssignmentDto {
     @IsString()
     @IsNotEmpty()
-    firstName: string;
+    roommieId: string;
 
     @IsString()
     @IsNotEmpty()
-    lastName: string;
+    houseId: string;
 
     @IsString()
     @IsNotEmpty()
-    name: string;
+    isActive: string;
 
     @IsString()
-    clientId: string;
+    create_at: string;
 
 }
 

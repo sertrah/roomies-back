@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { v4 as uuid } from 'uuid';
 
-export type AssignmentDocument = Assignment & Document;
+export type BillDocument = Bill & Document;
 
 @Schema({
     toJSON: {
@@ -11,9 +11,9 @@ export type AssignmentDocument = Assignment & Document;
     },
     timestamps: true,
 })
-export class Assignment {
-
+export class Bill {
+    @Prop({ required: true })
+    name: string;
 }
 
-export const AssignmentSchema = SchemaFactory.createForClass(Assignment);
-
+export const BillSchema = SchemaFactory.createForClass(Bill);
