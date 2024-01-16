@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { v4 as uuid } from 'uuid';
 
-export type ClientDocument = Client & Document;
+export type RoomiesDocument = Roomies & Document;
 
 @Schema({
   toJSON: {
@@ -11,7 +11,7 @@ export type ClientDocument = Client & Document;
   },
   timestamps: true,
 })
-export class Client {
+export class Roomies {
   @Prop({ required: true })
   name: string;
 
@@ -25,5 +25,5 @@ export class Client {
   clientId: string;
 }
 
-export const ClientSchema = SchemaFactory.createForClass(Client);
+export const RoomiesSchema = SchemaFactory.createForClass(Roomies);
 
