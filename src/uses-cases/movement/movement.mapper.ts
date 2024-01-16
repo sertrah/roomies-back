@@ -1,6 +1,6 @@
 
 import * as entity from '../../core/entities/movement.entity';
-import { Movement } from '../../db/model';
+import { Movement } from '../../db/schema';
 import { IGenericRepository } from 'src/core';
 
 export const MovementMapper = {

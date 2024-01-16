@@ -8,6 +8,13 @@ export class RoomiesController {
 
   @Get()
   async getAll() {
+    this.createRoomies({
+      name: 'harlen',
+      lastName: 'giraldo',
+      tel: '3123123',
+      email: 'asdads',
+      image: ''
+    })
     return this.roomiesUseCases.getAllRoomies();
   }
 

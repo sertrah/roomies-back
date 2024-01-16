@@ -1,6 +1,6 @@
 
 import * as entity from '../../core/entities/assignment.entity';
-import { Assignment } from '../../db/model';
+import { Assignment } from '../../db/schema';
 import { IGenericRepository } from 'src/core';
 
 export const AssignmentMapper = {
@@ -11,6 +11,7 @@ export const AssignmentMapper = {
             houseId: 'houseId',
             isActive: 'active',
             create_at: 'createAt',
+            roomie: 's'
         })));
     },
 
@@ -20,6 +21,7 @@ export const AssignmentMapper = {
             houseId: 'houseId',
             isActive: 'active',
             create_at: 'createAt',
+            roomie: 's'
         }));
     },
 
@@ -29,6 +31,7 @@ export const AssignmentMapper = {
             houseId: 'houseId',
             isActive: 'active',
             create_at: 'createAt',
+            roomie: 's'
         }))
     },
 
@@ -38,6 +41,7 @@ export const AssignmentMapper = {
             houseId: 'houseId',
             isActive: 'active',
             create_at: 'createAt',
+            roomie: 's'
         }))
     }
 }

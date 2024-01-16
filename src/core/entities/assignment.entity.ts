@@ -3,4 +3,5 @@ export class Assignment {
     houseId: string;
     isActive: string;
     create_at: string;
+    roomie: any;
 }
