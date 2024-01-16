@@ -17,6 +17,8 @@ export class CreateAssignmentDto {
     @IsString()
     create_at: string;
 
+    roomie: any;
+
 }
 
 export class UpdateAssignmentDto extends PartialType(CreateAssignmentDto) { }

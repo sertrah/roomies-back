@@ -1,6 +1,6 @@
 
 import * as entity from '../../core/entities/user.entity';
-import { User } from '../../db/model';
+import { User } from '../../db/schema';
 import { IGenericRepository } from 'src/core';
 
 export const UserMapper = {

@@ -10,6 +10,7 @@ export class AssignmentFactoryService {
     newAssignment.houseId = createAssignmentDto.houseId;
     newAssignment.isActive = createAssignmentDto.isActive;
     newAssignment.create_at = createAssignmentDto.create_at;
+    newAssignment.roomie = '65a6b8c79533efebfa5b83cb';
 
     return newAssignment;
   }
@@ -18,6 +19,7 @@ export class AssignmentFactoryService {
     const newAssignment = new Assignment();
     newAssignment.roommieId = updateAssignmentDto.roommieId;
     newAssignment.houseId = updateAssignmentDto.houseId;
+    newAssignment.roomie = '65a6b8c79533efebfa5b83cb';
 
     return newAssignment;
   }
