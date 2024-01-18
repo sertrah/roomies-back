@@ -35,4 +35,21 @@ export class UserUseCases {
     const userCreated = this.dataServices.users.update(UserId, User);
     return UserMapper.updateUser(userCreated)
   }
+
+  async insertUser(userName: string, passwd: string) {
+    const username = userName.toLowerCase();
+    debugger;
+    const newUser = new this.dataServices.userSibitis({
+      username,
+      passwd,
+    });
+    await newUser.save();
+    return newUser;
+  }
+
+  async getUser(userName: string) {
+    const username = userName.toLowerCase();
+    const user = await this.dataServices.userSibitis.findOne({ username });
+    return user;
+  }
 }
