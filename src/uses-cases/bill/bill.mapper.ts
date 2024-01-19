@@ -13,6 +13,7 @@ export const BillMapper = {
             houseId: 'houseId',
             createdAt: 'createdAt',
             description: 'description',
+            house: '',
         })));
     },
 
@@ -24,6 +25,7 @@ export const BillMapper = {
             houseId: 'houseId',
             createdAt: 'createdAt',
             description: 'description',
+            house: '',
         }));
     },
 
@@ -35,6 +37,7 @@ export const BillMapper = {
             houseId: 'houseId',
             createdAt: 'createdAt',
             description: 'description',
+            house: '',
         }))
     },
 
@@ -46,6 +49,7 @@ export const BillMapper = {
             houseId: 'houseId',
             createdAt: 'createdAt',
             description: 'description',
+            house: '',
         }))
     }
 }

@@ -1,4 +1,4 @@
-import { Bill, Movement, User, Roomie, Assignment } from '../../db/schema';
+import { Bill, Movement, User, Roomie, Assignment, House } from '../../db/schema';
 import { IGenericRepository } from './generic-repository.abstract';
 
 export abstract class IDataServices {
@@ -7,5 +7,6 @@ export abstract class IDataServices {
   abstract assignments: IGenericRepository<Assignment>;
   abstract movements: IGenericRepository<Movement>;
   abstract bills: IGenericRepository<Bill>;
+  abstract houses: IGenericRepository<House>;
   abstract userSibitis: any;
 }

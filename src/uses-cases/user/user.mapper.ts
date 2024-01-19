@@ -9,6 +9,7 @@ export const UserMapper = {
         return usersDB.then((users) => users.map((user) => ({
             username: 'name',
             passwd: 'passwd',
+            roomieId: '',
         })));
     },
 
@@ -16,6 +17,7 @@ export const UserMapper = {
         return usersDB.then(() => ({
             username: 'name',
             passwd: 'passwd',
+            roomieId: '',
         }));
     },
 
@@ -23,6 +25,7 @@ export const UserMapper = {
         return userCreated.then(() => ({
             username: 'name',
             passwd: 'passwd',
+            roomieId: '',
         }))
     },
 
@@ -30,6 +33,7 @@ export const UserMapper = {
         return userCreated.then(() => ({
             username: 'name',
             passwd: 'passwd',
+            roomieId: '',
         }))
     }
 }

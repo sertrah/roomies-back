@@ -3,6 +3,8 @@ import { Bill } from '../../core/entities';
 import { IDataServices } from '../../core/abstracts';
 import { CreateBillDto, UpdateBillDto } from '../../core/dtos';
 import { BillFactoryService } from './bill-factory.service';
+import { BillMapper } from './bill.mapper';
+
 
 @Injectable()
 export class BillUseCases {
@@ -11,44 +13,26 @@ export class BillUseCases {
         private billFactoryService: BillFactoryService,
     ) { }
 
-    getAllBill(): Promise<Bill[]> { // CAMBIANDO DE []DB -> []ENTIDAD DE DOMINIO
-        const p = this.dataServices.bills.getAll();
-        return p.then((v) => v.map(billDB => ({
-            name: 'name',
-            totalAmount: 123,
-            paymentPeriod: 'paymentPeriod',
-            houseId: 'houseId',
-            createdAt: 'createdAt',
-            description: 'description',
-        })))
+    getAllBill(): Promise<Bill[]> {
+        const a = this.dataServices.bills.getAll();
+        return BillMapper.getAllBill(a);
+
     }
 
     getBillById(id: any): Promise<Bill> {
-        const v = this.dataServices.bills.get(id);
-        return v.then((a) => ({
-            name: 'name',
-            totalAmount: 123,
-            paymentPeriod: 'paymentPeriod',
-            houseId: 'houseId',
-            createdAt: 'createdAt',
-            description: 'description',
-        }));
+        const a = this.dataServices.bills.get(id);
+        return BillMapper.getBillById(a);
     }
 
     createBill(createBillDto: CreateBillDto): Promise<Bill> {
         const Bill = this.billFactoryService.createNewBill(createBillDto);
-        return this.dataServices.bills.create(Bill).then((x => ({
-            name: 'name',
-            totalAmount: 123,
-            paymentPeriod: 'paymentPeriod',
-            houseId: 'houseId',
-            createdAt: 'createdAt',
-            description: 'description',
-        })));
+        const created = this.dataServices.bills.create(Bill);
+        return BillMapper.createBill(created)
     }
 
     updateBill(BillId: string, updateBillDto: UpdateBillDto): Promise<Bill> {
         const Bill = this.billFactoryService.updateBill(updateBillDto);
-        return this.dataServices.bills.update(BillId, Bill);
+        const billCreated = this.dataServices.bills.update(BillId, Bill);
+        return BillMapper.updateBill(billCreated)
     }
 }

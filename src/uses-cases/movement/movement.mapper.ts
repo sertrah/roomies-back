@@ -10,8 +10,8 @@ export const MovementMapper = {
             photo: 'photo',
             amount: 123,
             movementType: 'movementtype',
-            billsId: 'billsid',
-            assignmentId: 'assignmentId',
+            billsId: '',
+            assignmentId: '',
         })));
     },
 
@@ -20,8 +20,8 @@ export const MovementMapper = {
             photo: 'photo',
             amount: 123,
             movementType: 'movementtype',
-            billsId: 'billsid',
-            assignmentId: 'assignmentId',
+            billsId: '',
+            assignmentId: '',
         }));
     },
 
@@ -30,8 +30,8 @@ export const MovementMapper = {
             photo: 'photo',
             amount: 123,
             movementType: 'movementtype',
-            billsId: 'billsid',
-            assignmentId: 'assignmentId',
+            billsId: '',
+            assignmentId: '',
         }))
     },
 
@@ -40,8 +40,8 @@ export const MovementMapper = {
             photo: 'photo',
             amount: 123,
             movementType: 'movementtype',
-            billsId: 'billsid',
-            assignmentId: 'assignmentId',
+            billsId: '',
+            assignmentId: '',
         }))
     }
 }

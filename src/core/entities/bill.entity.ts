@@ -5,4 +5,5 @@ export class Bill {
     houseId: string;
     createdAt: string;
     description: string;
+    house: any;
 }

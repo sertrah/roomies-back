@@ -22,6 +22,8 @@ export class CreateBillDto {
 
     @IsString()
     description: string;
+
+    house: any;
 }
 
 export class UpdateBillDto extends PartialType(CreateBillDto) { }

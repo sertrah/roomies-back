@@ -3,3 +3,4 @@ export * from './roomies.controller';
 export * from './assignment.controller';
 export * from './movement.controller';
 export * from './bill.controller';
+export * from './house.controller';
