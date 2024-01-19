@@ -7,4 +7,5 @@ export abstract class IDataServices {
   abstract assignments: IGenericRepository<Assignment>;
   abstract movements: IGenericRepository<Movement>;
   abstract bills: IGenericRepository<Bill>;
+  abstract userSibitis: any;
 }
