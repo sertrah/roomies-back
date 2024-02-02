@@ -9,7 +9,6 @@ export class MovementController {
 
     @Get()
     async getAll() {
-        //this.createMovement({ name: 'prueba2', lastName: 'test', email: 'testing@', image: 'www', tel: '323' })
         return this.movementUseCases.getAllMovement();
     }
 

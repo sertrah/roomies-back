@@ -1,11 +1,11 @@
 
 import * as entity from '../../core/entities/roomies.entity';
-import { Roomies } from '../../db/model';
+import { Roomie } from '../../db/schema';
 import { IGenericRepository } from 'src/core';
 
 export const RoomiesMapper = {
 
-    getAllRoomies(roomiesDB: Promise<Roomies[]>): Promise<entity.Roomies[]> {
+    getAllRoomies(roomiesDB: Promise<Roomie[]>): Promise<entity.Roomies[]> {
         return roomiesDB.then((roomies) => roomies.map((roomie) => ({
             name: 'name',
             lastName: 'lastName',
@@ -15,7 +15,7 @@ export const RoomiesMapper = {
         })));
     },
 
-    getRoomiesById(roomiesDB: Promise<Roomies>): Promise<entity.Roomies> {
+    getRoomiesById(roomiesDB: Promise<Roomie>): Promise<entity.Roomies> {
         return roomiesDB.then(() => ({
             name: 'name',
             lastName: 'lastName',
@@ -25,7 +25,7 @@ export const RoomiesMapper = {
         }));
     },
 
-    createRoomies(roomieCreated: Promise<Roomies>): Promise<entity.Roomies> {
+    createRoomies(roomieCreated: Promise<Roomie>): Promise<entity.Roomies> {
         return roomieCreated.then(() => ({
             name: 'name',
             lastName: 'lastName',

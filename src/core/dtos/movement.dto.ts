@@ -15,11 +15,11 @@ export class CreateMovementDto {
     movementType: string;
 
     @IsString()
-    billsId: string;
+    billsId: any;
 
 
     @IsString()
-    assignmentId: string;
+    assignmentId: any;
 
 }
 

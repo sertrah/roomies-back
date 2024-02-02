@@ -9,6 +9,13 @@ export class AssignmentController {
 
     @Get()
     async getAll() {
+         this.createAssignment({
+            roommieId: 'string',
+            houseId: 'string',
+            isActive: 'string',
+            create_at: 'string',
+            roomie: '65a6b8c79533efebfa5b83cb',
+        }) 
         return this.assignmentUseCases.getAllAssignment();
     }
 

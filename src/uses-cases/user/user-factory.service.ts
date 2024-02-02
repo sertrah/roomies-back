@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '../../db/model';
+import { User } from '../../db/schema';
 import { CreateUserDto, UpdateUserDto } from '../../core/dtos';
 
 @Injectable()
@@ -8,6 +8,7 @@ export class UserFactoryService {
     const newUser = new User();
     newUser.username = createUserDto.username;
     newUser.passwd = createUserDto.passwd;
+    newUser.roomieId = createUserDto.roomieId;
 
     return newUser;
   }
