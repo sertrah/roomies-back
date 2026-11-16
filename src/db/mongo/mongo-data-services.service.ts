@@ -13,6 +13,7 @@ export class MongoDataServices
   assignments: MongoGenericRepository<Assignment>;
   movements: MongoGenericRepository<Movement>;
   bills: MongoGenericRepository<Bill>;
+  userSibitis: any;
 
   constructor(
     @InjectModel(User.name)
@@ -29,6 +30,7 @@ export class MongoDataServices
 
   onApplicationBootstrap() {
     this.users = new MongoGenericRepository<User>(this.UserRepository);
+    this.userSibitis = this.UserRepository;
     this.roomieses = new MongoGenericRepository<Roomies>(this.RoomiesRepository);
     this.assignments = new MongoGenericRepository<Assignment>(this.AssignmentRepository);
     this.movements = new MongoGenericRepository<Movement>(this.MovementRepository);

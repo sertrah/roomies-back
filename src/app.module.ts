@@ -9,11 +9,12 @@ import { RoomiesUseCasesModule } from './uses-cases/roomies/roomies-use-cases.mo
 import { AssignmentUseCasesModule } from './uses-cases/assignment/assignment-use-cases.module';
 import { MovementUseCasesModule } from './uses-cases/movement/movement-use-cases.module';
 import { BillUseCasesModule } from './uses-cases/bill/bill-use-cases.module';
+import { AuthModule } from './auth/auth.module';
 
 import 'dotenv/config';
 
 @Module({
-  imports: [MongoServicesModule, UserUseCasesModule, RoomiesUseCasesModule, AssignmentUseCasesModule, MovementUseCasesModule, BillUseCasesModule],
+  imports: [MongoServicesModule, UserUseCasesModule, RoomiesUseCasesModule, AssignmentUseCasesModule, MovementUseCasesModule, BillUseCasesModule, AuthModule],
   controllers: [UserController, RoomiesController, AssignmentController, MovementController, BillController],
   providers: [AppService],
 })
